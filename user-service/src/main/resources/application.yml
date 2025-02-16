@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /e-commerce
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/e_commerce"
+    username: postgres
+    password: 1234567890
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+jwt:
+  signerKey: "0467a1e50b6e6916f8a54d582ce495f5095c67016e74ce5893772f769af98926"
+  validDuration: 3600
+  refreshableDuration: 36000

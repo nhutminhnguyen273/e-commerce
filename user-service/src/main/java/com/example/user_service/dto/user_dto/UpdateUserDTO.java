@@ -1,7 +1,6 @@
-package com.example.user_service.dto.auth_dto;
+package com.example.user_service.dto.user_dto;
 
 import com.example.user_service.enums.Gender;
-import com.example.user_service.model.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -17,7 +16,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegistrationDTO {
+public class UpdateUserDTO {
     @NotNull(message = "Username is required")
     @Size(min = 5, max = 50, message = "Username must be between 5 and 50 characters")
     private String username;
@@ -35,9 +34,4 @@ public class RegistrationDTO {
     @NotNull(message = "Phone number is required")
     @Pattern(regexp = "\\d{10}", message = "Phone number must be 10 digits")
     private String phone;
-    @NotNull(message = "Password is required")
-    private String password;
-    @NotNull(message = "Role is required")
-    private Role role;
-    private String confirmPassword;
 }

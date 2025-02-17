@@ -1,5 +1,6 @@
 package com.example.user_service.model;
 
+import com.example.shared_library.model.BasicModel;
 import com.example.user_service.enums.Gender;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User extends BasicModel {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -46,12 +47,4 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
-    @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createAt;
-    @Column(nullable = false)
-    @UpdateTimestamp
-    private LocalDateTime updateAt;
-    @Column(nullable = false)
-    private boolean deleted = false;
 }

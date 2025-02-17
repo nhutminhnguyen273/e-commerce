@@ -31,8 +31,8 @@ public class AuthService {
                 return new AuthenticationResponse(input.getEmail() + " already existed");
             if (userRepository.existsByPhone(input.getPhone()))
                 return new AuthenticationResponse(input.getPhone() + " already existed");
-//            if (!input.getConfirmPassword().equals(input.getPassword()))
-//                return new AuthenticationResponse("Confirm password and password are not the same");
+            if (!input.getConfirmPassword().equals(input.getPassword()))
+                return new AuthenticationResponse("Confirm password and password are not the same");
             Role role = roleRepository.findByName("Customer").orElseThrow(
                     () -> new NotFoundException("Customer role not found")
             );
